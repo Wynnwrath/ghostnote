@@ -2,10 +2,10 @@ from sqlmodel import Field, SQLModel
 import secrets
 import string
 
-# id generator
+#generator for unique note IDs
 def generate_id() -> str:
-    characters = string.ascii_letters + string.digits
-    return ''.join(secrets.choice(characters) for _ in range(9))
+    alphabet = string.ascii_letters + string.digits
+    return "".join(secrets.choice(alphabet) for _ in range(9))
 
 class Note(SQLModel, table=True):
     id: str = Field(default_factory=generate_id, primary_key=True)

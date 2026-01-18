@@ -3,12 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session
 from database import create_db_and_tables, get_session
 from models import Note
+import os
 
 app = FastAPI()
 
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",
+    os.getenv("FRONTEND_URL"),
 ]
 
 app.add_middleware(

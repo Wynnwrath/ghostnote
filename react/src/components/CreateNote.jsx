@@ -11,7 +11,7 @@ export default function CreateNote() {
     
     setLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:8000/create_note', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/create_note`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: content })
